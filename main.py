@@ -38,8 +38,8 @@ if __name__ == '__main__':
         os.makedirs(log_path)
 
     init_seed(4396)
-    X_ = fgc_multi(A, X, args.device, args.k, args.a, args.f)
-    acc_max, max_epoch, acc_list, loss_list, ac_best, nm_best, f1_best, ari_best = Training(A, X_, Y, args)
+    X_ = fgc_multi(A, X, args.device, args.k, args.a, args)
+    max_epoch, ac_best, nm_best, f1_best, ari_best = Training(A, X_, Y, args)
     with open(log_path, 'a') as f:
         result = 'k: {:d}, a: {:.4f}, epoch: {:d}, ac_best: {:.4f}, nm_best: {:.4f}, f1_best: {:.4f}, ari_best: {:.4f}'.format(args.k, args.a, max_epoch, ac_best, nm_best, f1_best, ari_best)
         f.write(result + '\n')

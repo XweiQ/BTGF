@@ -5,7 +5,7 @@ import torch
 import scipy.sparse as sp
 
 
-def fgc_filter(A, X, device, f, k, a):
+def fgc_filter(A, X, device, args, k, a):
     # Convert A and X to PyTorch tensors
     if type(A) is np.ndarray:
         A = torch.from_numpy(A).to(device)
@@ -29,6 +29,10 @@ def fgc_filter(A, X, device, f, k, a):
     G = I_n - 0.5*Ls
     # Set f(A)
     A_ = I_n
+    if args.dataset=='ACM': f=2
+    elif args.dataset=='amazon': f=1
+    elif args.dataset=='aminer': f=3
+    elif args.dataset=='DBLP_L': f=3 
     for _ in range(f):
         A_ = G.matmul(A_)
 	# Set the order of filter
@@ -49,8 +53,8 @@ def fgc_filter(A, X, device, f, k, a):
     return X_
 
 
-def fgc_multi(A, X, device, k, a, f):
+def fgc_multi(A, X, device, k, a, args):
     X_ = X.copy()
     for idx, x in enumerate(X):
-        X_[idx] = fgc_filter(A[idx], x, device, f, k, a)
+        X_[idx] = fgc_filter(A[idx], x, device, args, k, a)
     return X_

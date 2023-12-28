@@ -4,13 +4,13 @@ import warnings
 import traceback
 
 from torch.optim import Adam
-from model import MvRCN
+from model import *
 from losses import *
 from metrics import clustering_metrics
 warnings.filterwarnings('ignore')
 
 
-def Training(A, X_, Y, pic_path, args) :
+def Training(A, X_, Y, args) :
 
     device = f'cuda:{args.device}' if torch.cuda.is_available() else 'cpu'
     device = torch.device(device)
@@ -34,7 +34,7 @@ def Training(A, X_, Y, pic_path, args) :
     nfeature = X[0].size(1)
     num_classes = len(np.unique(Y))
 
-    Net = MvRCN(args, Batch_size, nfeature).to(device)
+    Net = model(args, Batch_size, nfeature).to(device)
     Optimizer = Adam(Net.parameters(), lr=args.lr, weight_decay=args.wd)
 
     ac_list = []
@@ -87,6 +87,6 @@ def Training(A, X_, Y, pic_path, args) :
 
     print("acc_max, epoch: ", ac_best, nxia+1)
 
-    return nxia+1, ac_list, loss_list, ac_best, nm_best, f1_best, ari_best
+    return nxia+1, ac_best, nm_best, f1_best, ari_best
 
 

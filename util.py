@@ -13,7 +13,6 @@ def get_config():
     # filter
     parser.add_argument('-k', type=int, default=3)
     parser.add_argument('-a', type=float, default=10)
-    parser.add_argument('-f', type=int, default=3)
 
     # training settings
     parser.add_argument('-epoch', type=int, default=400)

@@ -4,7 +4,7 @@ from torch.nn import Linear
 
 
 class mlp(nn.Module):
-    def __init__(self, n_input, n_z):
+    def __init__(self, dropout, n_input, n_z):
         super(mlp, self).__init__()
         self.Encder1 = nn.Sequential \
                 (
@@ -21,12 +21,12 @@ class mlp(nn.Module):
         return z1, x_bar_1
 
 
-class MvRCN(nn.Module):
+class model(nn.Module):
 
     def __init__(self, args, nodes, in_dims_1, size_model="mlp"):
-        super(MvRCN, self).__init__()
+        super(model, self).__init__()
         if size_model == 'mlp':
-            self.AE = mlp(args.p, in_dims_1, n_z=10)
+            self.AE = mlp(args.p, in_dims_1, 10)
 
     def forward(self, A, X_raw_list):
         for idx_x, x in enumerate(X_raw_list):

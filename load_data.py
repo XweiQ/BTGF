@@ -33,7 +33,7 @@ def ACM(dataname='ACM'):
     """
     if dataname == "ACM":
         # Load data
-        dataset = "./mat/" + 'ACM3025'
+        dataset = "./dataset/" + 'ACM3025'
         data = sio.loadmat('{}.mat'.format(dataset))
         if (dataset == 'large_cora'):
             X = data['X']
@@ -65,7 +65,7 @@ def ACM(dataname='ACM'):
 
 
 def amazon():
-    data = pkl.load(open("data/amazon.pkl", "rb"))
+    data = pkl.load(open("./dataset/amazon.pkl", "rb"))
     label = data['label'].argmax(1)
 
     # dense
@@ -83,7 +83,7 @@ def amazon():
 
 
 def DBLP_L():
-    data = pkl.load(open("./data/dblp.pkl", "rb"))
+    data = pkl.load(open("./dataset/dblp.pkl", "rb"))
     label = data['label'].argmax(1)
  
     pap = np.array(data["PAP"])
@@ -108,7 +108,7 @@ def aminer(ratio=[20, 40, 60], type_num=[6564, 13329, 35890]):
     Returns:
         label(ndarray): [nnodes, ]
     """
-    path = "./data/aminer/"
+    path = "./dataset/aminer/"
     label = np.load(path + "labels.npy").astype('int32')
     pap = sp.load_npz(path + "pap.npz")
     prp = sp.load_npz(path + "prp.npz")
