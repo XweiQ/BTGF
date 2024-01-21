@@ -11,7 +11,7 @@ The statistcs of datasets as follows:
 
 The `learning rate` and `weight decay` of the optimizer are set to $1e^{−2}$ and $1e^{−3}$ . 
 
-The filter’s parameters $k$ and $γ$ is tuned in $[1, 2, 3, 4]$ and $[1, 1, 10, 100, 1000]$, respectively.
+The filter’s parameters $k$ and $γ$ is tuned in $[1, 2, 3, 4]$ and $[1, 10, 100, 1000]$, respectively.
 
 You can run BTGF on with this command (e.g.: ACM)
 
