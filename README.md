@@ -1,4 +1,4 @@
-# BTFG
+# BTGF
 This is code for [*Upper Bounding Barlow Twins: A Novel Filter for Multi-relational Clustering*](https://arxiv.org/abs/2312.14066) AAAI-24.
 
 Overall node clustering result:
