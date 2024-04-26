@@ -1,2 +1,0 @@
-
-python main.py -dataset ACM -epoch 400 -lr 1e-2 -wd 1e-3 -k 4 -a 10 -f 2
