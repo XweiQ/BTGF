@@ -11,7 +11,7 @@ The statistics of the datasets are as follows:
 
 <img src="https://s2.loli.net/2023/12/28/n4myzZlYp7ONet5.png" alt="image-20231228103516094" style="zoom:80%;" />
 
-DBLP and Amazon can be found on [Google Drive](https://drive.google.com/drive/folders/1Ii2bpwZJSSkasi9IFGFkh1ZF-4gPWzUO?usp=drive_link).
+*DBLP* and *Amazon* can be found on [Google Drive](https://drive.google.com/drive/folders/1Ii2bpwZJSSkasi9IFGFkh1ZF-4gPWzUO?usp=drive_link).
 
 ## Usage
 The `learning rate` and `weight decay` of the optimizer are set to $1e^{−2}$ and $1e^{−3}$. 
